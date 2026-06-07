@@ -142,7 +142,7 @@ else:
 st.subheader("Remaining Playoff Teams")
 
 remaining_east = ["NYK"]
-remaining_west = ["OKC", "SAS"]
+remaining_west = ["SAS"]
 
 remaining_teams = remaining_east + remaining_west
 
