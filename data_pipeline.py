@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 from nba_api.stats.endpoints import leaguedashplayerstats
 from datetime import datetime
-
+from zoneinfo import ZoneInfo
 
 DB_NAME = "nba_data.db"
 
@@ -56,7 +56,7 @@ def save_update_time():
     conn = sqlite3.connect(DB_NAME)
 
     update_df = pd.DataFrame({
-        "last_updated": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]
+        "last_updated": [datetime.now(ZoneInfo("Asia/Taipei")).strftime("%Y-%m-%d %H:%M:%S"))]
     })
 
     update_df.to_sql("update_log", conn, if_exists="replace", index=False)
