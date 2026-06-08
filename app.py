@@ -130,7 +130,6 @@ if st.button("Update Data"):
     except Exception as e:
         st.error("Update failed because the NBA API did not respond in time. Please try again later.")
         st.info("The dashboard will continue using the most recently saved data.")
-    st.success("Data updated successfully!")
 df = load_data()
 
 last_updated = load_update_time()
