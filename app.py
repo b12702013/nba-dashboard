@@ -123,8 +123,13 @@ st.title("NBA Player Statistics Dashboard")
 st.write("This dashboard shows NBA player statistics from a SQLite database.")
 
 if st.button("Update Data"):
-    with st.spinner("Updating NBA data..."):
-        run_pipeline()
+    try:
+        with st.spinner("Updating NBA data..."):
+            run_pipeline()
+        st.success("Data updated successfully!")
+    except Exception as e:
+        st.error("Update failed because the NBA API did not respond in time. Please try again later.")
+        st.info("The dashboard will continue using the most recently saved data.")
     st.success("Data updated successfully!")
 df = load_data()
 
